@@ -1,7 +1,8 @@
-const Category = require("./models/Category");
-const Term = require("./models/Term");
+// const Category = require("./models/Category");
+// const Term = require("./models/Term");
+// const seed = require("./seed")
 
-Category.hasMany(Term);
-Term.belongsToMany(Category, { through: "Category_Term" });
+// Category.hasMany(Term);
+// Term.belongsTo(Category);
 
-module.exports = { Category, Term };
+// module.exports = { Category, Term };

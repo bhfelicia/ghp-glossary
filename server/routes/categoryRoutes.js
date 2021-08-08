@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const { Category, Term } = require("../db/index");
+const Category = require("../db/models/Category");
+const Term = require("../db/models/Term");
 
 router.get("/", async (req, res, next) => {
   try {
