@@ -9,5 +9,11 @@ const seed = async () => {
   const css = await Category.create({ name: "CSS (Cascading Style Sheets" });
   const dom = await Category.create({ name: "DOM (Document Object Model" });
   const node = await Category.create({ name: "Node.js" });
+  const element = await Term.create({
+    title: "HTML Element",
+    definition:
+      "The HTML element is everything from the start tag to the end tag. For example: <h1>My First Heading</h1>",
+    isDefined: true,
+  });
 };
 module.exports = seed;
