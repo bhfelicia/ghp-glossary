@@ -12,4 +12,15 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+router.get("/:id", async (req, res, next) => {
+  try {
+    const categoryWTerms = await Category.findByPk(req.params.id, {
+      include: Term,
+    });
+    res.send(categoryWTerms);
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;

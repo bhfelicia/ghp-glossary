@@ -15,7 +15,7 @@ class Glossary extends Component {
   }
   render() {
     const { categories } = this.state;
-    console.log(categories);
+
     return (
       <div>
         <h1>GHP Glossary Categories</h1>
