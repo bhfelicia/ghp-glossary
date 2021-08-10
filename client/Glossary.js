@@ -11,6 +11,11 @@ class Glossary extends Component {
       categories: [],
     };
   }
+  componentDidUpdate(prevProps) {
+    if (prevProps !== this.props) {
+      this.setState({ ...this.props.categories });
+    }
+  }
   async componentDidMount() {
     await this.props.getCategories();
 
