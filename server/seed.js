@@ -1,10 +1,19 @@
 const db = require("./db/db");
 const Term = require("./db/models/Term");
 const Category = require("./db/models/Category");
+const Question = require("./db/models/Question");
+const Answer = require("./db/models/Answer");
 
 const seed = async () => {
   Category.hasMany(Term);
   Term.belongsTo(Category);
+
+  Question.hasMany(Answer);
+  Answer.belongsTo(Question);
+
+  Question.belongsTo(Category);
+  Category.hasMany(Question);
+
   await db.sync({ force: true });
   const html = await Category.create({
     name: "HTML (HyperText Markup Language)",
@@ -19,5 +28,15 @@ const seed = async () => {
     isDefined: true,
     categoryId: html.id,
   });
+  const question1 = await Question.create({
+    inquiry: "Error: Can't set headers after they are sent to the client",
+    description:
+      "After res.sending data from the back end using express, I am receiving this error. What might be causing this issue?",
+  });
+  const answer1 = await Answer.create({
+    reply:
+      "This commonly happens where you may be accidentally res.send-ing more than once from your backend route. Check how you're sending the data back from you express routes and ensure only 1 response can be sent from it.",
+  });
+  question1.answerId = answer1;
 };
 module.exports = seed;
