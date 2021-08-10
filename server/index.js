@@ -9,9 +9,11 @@ const seed = require("./seed");
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "..", "/public")));
 
 app.use("/api/categories", require("./routes/categoryRoutes"));
 app.use("/api/terms", require("./routes/termRoute"));
+
 app.use("/api/questions", require("./routes/questionRoute"));
 
 app.get("/", (req, res, next) => {

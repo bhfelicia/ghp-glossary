@@ -1,5 +1,8 @@
 module.exports = {
   entry: ["./client/"],
+  output: {
+    path: __dirname + "/public",
+  },
   module: {
     rules: [
       {
