@@ -13,14 +13,8 @@ class Category extends Component {
   async componentDidMount() {
     await this.props.getTerms(this.props.match.params.id);
     this.setState({ category: this.props.category, terms: this.props.terms });
-    // this.setState({
-    //   category: this.props.category,
-    //   terms: this.props.category.terms,
-    // });
   }
   render() {
-    console.log("state: ", this.state);
-    console.log("props: ", this.props);
     const { category, terms } = this.state;
     return (
       <div>
@@ -42,7 +36,6 @@ class Category extends Component {
 const mapStateToProps = (state) => ({
   category: state.terms.category,
   terms: state.terms.category.terms,
-  // terms: state.category.terms,
 });
 
 const mapDispatchToProps = (dispatch) => ({

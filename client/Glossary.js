@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { fetchCategories } from "./store/categories";
 class Glossary extends Component {
   constructor(props) {
@@ -21,7 +22,11 @@ class Glossary extends Component {
         <h1>GHP Glossary Categories</h1>
         <ul>
           {categories.map((category, idx) => {
-            return <li key={idx}>{category.name}</li>;
+            return (
+              <Link to={`/glossary/${category.id}`} key={idx}>
+                <li key={idx}>{category.name}</li>
+              </Link>
+            );
           })}{" "}
         </ul>
       </div>
