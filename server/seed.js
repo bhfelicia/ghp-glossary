@@ -21,6 +21,7 @@ const seed = async () => {
   const css = await Category.create({ name: "CSS (Cascading Style Sheets)" });
   const dom = await Category.create({ name: "DOM (Document Object Model)" });
   const node = await Category.create({ name: "Node.js" });
+  const express = await Category.create({ name: "Express" });
   const element = await Term.create({
     title: "HTML Element",
     definition:
@@ -37,6 +38,9 @@ const seed = async () => {
     reply:
       "This commonly happens where you may be accidentally res.send-ing more than once from your backend route. Check how you're sending the data back from you express routes and ensure only 1 response can be sent from it.",
   });
-  question1.answerId = answer1;
+  answer1.questionId = question1.id;
+  await answer1.save();
+  question1.categoryId = express.id;
+  await question1.save();
 };
 module.exports = seed;
