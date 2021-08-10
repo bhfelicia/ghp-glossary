@@ -23,4 +23,14 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
+router.post("/", async (req, res, next) => {
+  try {
+    const { name } = req.body;
+    const category = await Category.create({ name });
+    res.send(category);
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchCategories } from "./store/categories";
+import AddCategory from "./AddCategory";
+
 class Glossary extends Component {
   constructor(props) {
     super(props);
@@ -29,6 +31,7 @@ class Glossary extends Component {
             );
           })}{" "}
         </ul>
+        <AddCategory />
       </div>
     );
   }

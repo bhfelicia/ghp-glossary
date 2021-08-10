@@ -1,0 +1,14 @@
+#widgets {
+  display: flex;
+  justify-content: space-around;
+}
+#widgets Link {
+  height: 30px;
+  width: 50px;
+  background-color: mediumorchid;
+}
+
+#welcome {
+  display: flex;
+  justify-content: center;
+}
