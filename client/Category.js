@@ -13,7 +13,7 @@ class Category extends Component {
   }
   componentDidUpdate(prevProps) {
     if (prevProps !== this.props) {
-      this.setState(this.props);
+      this.setState({ category: this.props.category, terms: this.props.terms });
     }
   }
   async componentDidMount() {

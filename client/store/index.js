@@ -4,8 +4,9 @@ import { createLogger } from "redux-logger";
 
 import categories from "./categories";
 import terms from "./terms";
+import questions from "./questions";
 
-const reducer = combineReducers({ categories, terms });
+const reducer = combineReducers({ categories, terms, questions });
 
 const store = createStore(
   reducer,

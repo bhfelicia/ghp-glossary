@@ -5,6 +5,7 @@ import { HashRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Glossary from "./Glossary";
 import Category from "./Category";
 import AddTerm from "./AddTerm";
+import Questions from "./Questions";
 
 const App = () => {
   return (
@@ -20,9 +21,7 @@ const App = () => {
           <Route exact path="/glossary" component={Glossary}></Route>
           <Route exact path="/glossary/:id" component={Category}></Route>
           <Route exact path="/glossary/:catId" component={AddTerm}></Route>
-          <Route exact path="/questions">
-            Q+A
-          </Route>
+          <Route exact path="/Q+A" component={Questions}></Route>
         </Switch>
       </Router>
     </div>

@@ -56,7 +56,7 @@ class AddTerm extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch, { history }) => ({
+const mapDispatchToProps = (dispatch) => ({
   addTerm: (term, id) => dispatch(createTerm(term, id)),
 });
 
