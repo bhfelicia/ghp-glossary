@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchTerms } from "./store/terms";
+import AddTerm from "./AddTerm";
 
 class Category extends Component {
   constructor(props) {
@@ -9,6 +10,11 @@ class Category extends Component {
       category: {},
       terms: [],
     };
+  }
+  componentDidUpdate(prevProps) {
+    if (prevProps !== this.props) {
+      this.setState(this.props);
+    }
   }
   async componentDidMount() {
     await this.props.getTerms(this.props.match.params.id);
@@ -29,6 +35,7 @@ class Category extends Component {
             );
           })}
         </ul>
+        <AddTerm />
       </div>
     );
   }

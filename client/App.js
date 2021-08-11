@@ -1,9 +1,10 @@
 import React from "react";
 
-import { HashRouter as Router, Route, Link } from "react-router-dom";
+import { HashRouter as Router, Route, Link, Switch } from "react-router-dom";
 
 import Glossary from "./Glossary";
 import Category from "./Category";
+import AddTerm from "./AddTerm";
 
 const App = () => {
   return (
@@ -15,11 +16,14 @@ const App = () => {
           <Link to="/glossary">Glossary</Link>
           <Link to="/Q+A">Q + A</Link>
         </div>
-        <Route exact path="/glossary" component={Glossary}></Route>
-        <Route exact path="/glossary/:id" component={Category}></Route>
-        <Route exact path="/questions">
-          Q+A
-        </Route>
+        <Switch>
+          <Route exact path="/glossary" component={Glossary}></Route>
+          <Route exact path="/glossary/:id" component={Category}></Route>
+          <Route exact path="/glossary/:catId" component={AddTerm}></Route>
+          <Route exact path="/questions">
+            Q+A
+          </Route>
+        </Switch>
       </Router>
     </div>
   );

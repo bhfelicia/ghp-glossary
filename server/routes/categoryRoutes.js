@@ -33,4 +33,19 @@ router.post("/", async (req, res, next) => {
   }
 });
 
+router.post("/:id", async (req, res, next) => {
+  try {
+    const { title, definition, isDefined } = req.body;
+    const term = await Term.create({
+      title,
+      definition,
+      isDefined,
+      categoryId: req.params.id,
+    });
+    res.send(term);
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;

@@ -1,10 +1,16 @@
 import axios from "axios";
 
 const GET_TERMS = "GET_TERMS";
+const ADD_TERM = "ADD_TERM";
 
 export const getTerms = (category) => ({
   type: GET_TERMS,
   category,
+});
+
+export const addTerm = (term) => ({
+  type: ADD_TERM,
+  term,
 });
 
 export const fetchTerms = (id) => {
@@ -18,6 +24,16 @@ export const fetchTerms = (id) => {
   };
 };
 
+export const createTerm = (newTerm, id) => {
+  return async (dispatch) => {
+    try {
+      const { data: term } = await axios.post(`/api/categories/${id}`, newTerm);
+      dispatch(addTerm(term));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
 const initialState = {
   category: {},
 };
