@@ -2,6 +2,7 @@ const { DataTypes, Model } = require("sequelize");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const db = require("../db");
+require("dotenv").config();
 
 class User extends Model {}
 

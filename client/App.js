@@ -6,6 +6,7 @@ import Glossary from "./Glossary";
 import Category from "./Category";
 import AddTerm from "./AddTerm";
 import Questions from "./Questions";
+import Login from "./Login";
 
 const App = () => {
   return (
@@ -14,10 +15,12 @@ const App = () => {
 
       <Router>
         <div id="widgets">
+          <Link to="/login">Login</Link>
           <Link to="/glossary">Glossary</Link>
           <Link to="/Q+A">Q + A</Link>
         </div>
         <Switch>
+          <Route exact path="/login" component={Login}></Route>
           <Route exact path="/glossary" component={Glossary}></Route>
           <Route exact path="/glossary/:id" component={Category}></Route>
           <Route exact path="/glossary/:catId" component={AddTerm}></Route>

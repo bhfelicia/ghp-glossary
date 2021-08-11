@@ -15,6 +15,7 @@ app.use("/api/categories", require("./routes/categoryRoutes"));
 app.use("/api/terms", require("./routes/termRoute"));
 
 app.use("/api/questions", require("./routes/questionRoute"));
+app.use("/api/users", require("./routes/userRoutes"));
 
 app.get("/", (req, res, next) => {
   res.sendFile(path.join(__dirname, "..", "public", "index.html"));
