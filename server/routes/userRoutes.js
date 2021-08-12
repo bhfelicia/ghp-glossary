@@ -37,4 +37,29 @@ router.get("/admin", async (req, res, next) => {
   }
 });
 
+router.post("/", async (req, res, next) => {
+  try {
+    const { first, last, email, password } = req.body;
+    const user = await User.findOne({
+      where: {
+        email,
+      },
+    });
+    if (user) {
+      alert("You already have an account");
+      res.sendStatus(409);
+    } else {
+      const newUser = await User.create({
+        first,
+        last,
+        email,
+        password,
+      });
+      res.status(201).send(newUser);
+    }
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;

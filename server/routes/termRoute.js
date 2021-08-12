@@ -12,4 +12,17 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+router.get("/:id", async (req, res, next) => {
+  try {
+    const terms = await Term.findAll({
+      where: {
+        categoryId: req.params.id,
+      },
+    });
+    res.send(terms);
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;

@@ -7,6 +7,7 @@ import Category from "./Category";
 import AddTerm from "./AddTerm";
 import Questions from "./Questions";
 import Login from "./Login";
+import Signup from "./Signup";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         </div>
         <Switch>
           <Route exact path="/login" component={Login}></Route>
+          <Route exact path="/signup" component={Signup}></Route>
           <Route exact path="/glossary" component={Glossary}></Route>
           <Route exact path="/glossary/:id" component={Category}></Route>
           <Route exact path="/glossary/:catId" component={AddTerm}></Route>

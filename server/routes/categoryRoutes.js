@@ -3,6 +3,17 @@ const router = express.Router();
 const Category = require("../db/models/Category");
 const Term = require("../db/models/Term");
 
+async function requireToken(req, res, next) {
+  try {
+    const token = req.headers.authorization;
+    const user = await User.byToken(token);
+    req.user = user;
+    next();
+  } catch (error) {
+    next(error);
+  }
+}
+
 router.get("/", async (req, res, next) => {
   try {
     const categories = await Category.findAll();
@@ -23,7 +34,7 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
-router.post("/", async (req, res, next) => {
+router.post("/", requireToken, async (req, res, next) => {
   try {
     const { name } = req.body;
     const category = await Category.create({ name });
